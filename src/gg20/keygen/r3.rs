@@ -276,6 +276,7 @@ mod malicious {
         gg20::keygen::KeygenShareId,
         sdk::api::TofnResult,
     };
+    use ecdsa::elliptic_curve::Field;
 
     use super::super::malicious::{log_confess_info, Behaviour};
 

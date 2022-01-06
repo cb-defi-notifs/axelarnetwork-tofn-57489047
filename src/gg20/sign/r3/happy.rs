@@ -328,6 +328,7 @@ mod malicious {
         gg20::sign::SignShareId,
         sdk::api::TofnResult,
     };
+    use ecdsa::elliptic_curve::Field;
     use k256::Scalar;
 
     use super::super::super::malicious::{log_confess_info, Behaviour::*};

@@ -10,6 +10,7 @@ use crate::{
         },
     },
 };
+use ecdsa::elliptic_curve::Field;
 
 use super::{r4, SignShareId};
 

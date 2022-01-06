@@ -327,6 +327,7 @@ mod malicious {
         },
         sdk::api::TofnResult,
     };
+    use ecdsa::elliptic_curve::Field;
 
     impl R6 {
         /// earlier we prepared to corrupt k_i by corrupting delta_i

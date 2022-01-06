@@ -13,7 +13,10 @@ use crate::{
         implementer_api::{serialize, ExpectedMsgTypes, MsgType},
     },
 };
-use ecdsa::{elliptic_curve::sec1::ToEncodedPoint, hazmat::VerifyPrimitive};
+use ecdsa::{
+    elliptic_curve::{sec1::ToEncodedPoint, Field},
+    hazmat::VerifyPrimitive,
+};
 use k256::{ecdsa::Signature, ProjectivePoint};
 use tracing::debug;
 use tracing_test::traced_test;
@@ -248,7 +251,7 @@ fn execute_sign(
 
     // TEST: signature verification
     let pub_key = y.to_affine();
-    assert!(pub_key.verify_prehashed(&m, &sig).is_ok());
+    assert!(pub_key.verify_prehashed(m, &sig).is_ok());
 }
 
 #[test]

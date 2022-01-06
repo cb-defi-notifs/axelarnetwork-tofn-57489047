@@ -7,7 +7,7 @@ use crate::{
         implementer_api::{Executer, ProtocolBuilder, ProtocolInfo},
     },
 };
-use ecdsa::hazmat::VerifyPrimitive;
+use ecdsa::{elliptic_curve::Field, hazmat::VerifyPrimitive};
 use k256::{ecdsa::Signature, ProjectivePoint, Scalar};
 use serde::{Deserialize, Serialize};
 use tracing::{error, warn};
@@ -90,7 +90,7 @@ impl Executer for R8Happy {
                 TofnFatal
             })?;
 
-            sig.normalize_s().map_err(|_| {
+            sig.normalize_s().ok_or({
                 error!("signature normalization failed");
                 TofnFatal
             })?;
@@ -100,7 +100,7 @@ impl Executer for R8Happy {
 
         let pub_key = &self.secret_key_share.group().y().as_ref().to_affine();
 
-        if pub_key.verify_prehashed(&self.msg_to_sign, &sig).is_ok() {
+        if pub_key.verify_prehashed(self.msg_to_sign, &sig).is_ok() {
             // convert signature into ASN1/DER (Bitcoin) format
             let sig_bytes = sig.to_der().as_bytes().to_vec();
 

@@ -145,6 +145,7 @@ mod malicious {
             SignShareId,
         },
     };
+    use ecdsa::elliptic_curve::Field;
 
     pub fn corrupt_gamma_i(
         my_sign_id: TypedUsize<SignShareId>,

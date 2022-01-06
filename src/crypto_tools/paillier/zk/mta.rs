@@ -12,9 +12,10 @@ use crate::{
     gg20::sign::SignShareId,
     sdk::api::{TofnFatal, TofnResult},
 };
-use ecdsa::hazmat::FromDigest;
+// use ecdsa::hazmat::FromDigest;
 use libpaillier::unknown_order::BigNumber;
 use serde::{Deserialize, Serialize};
+use sha2::digest::Update;
 use sha2::{Digest, Sha256};
 use tracing::{error, warn};
 

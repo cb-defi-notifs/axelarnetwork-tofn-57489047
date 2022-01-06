@@ -10,6 +10,7 @@ use crate::{
         implementer_api::{Executer, ProtocolBuilder, ProtocolInfo},
     },
 };
+use ecdsa::elliptic_curve::Field;
 use k256::{ProjectivePoint, Scalar};
 use serde::{Deserialize, Serialize};
 use tracing::{error, warn};

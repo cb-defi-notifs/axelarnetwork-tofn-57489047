@@ -7,6 +7,7 @@ use crate::{
     gg20::sign::SignShareId,
 };
 use ecdsa::hazmat::FromDigest;
+use hmac::digest::Update;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use tracing::warn;
@@ -106,6 +107,7 @@ pub fn verify(stmt: &Statement, proof: &Proof) -> bool {
 #[cfg(test)]
 pub(crate) mod malicious {
     use super::*;
+    use ecdsa::elliptic_curve::Field;
 
     pub fn corrupt_proof(proof: &Proof) -> Proof {
         Proof {

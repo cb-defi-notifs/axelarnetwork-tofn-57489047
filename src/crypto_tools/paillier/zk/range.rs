@@ -15,6 +15,7 @@ use crate::{
     sdk::api::{TofnFatal, TofnResult},
 };
 use ecdsa::hazmat::FromDigest;
+use hmac::digest::Update;
 use libpaillier::unknown_order::BigNumber;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};

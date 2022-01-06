@@ -1,3 +1,4 @@
+use hmac::digest::Update;
 /// We implement Girault's identification scheme (Fig. 1, Pg 6.) as described in
 /// https://www.di.ens.fr/david.pointcheval/Documents/Papers/2000_pkcA.pdf
 /// which provides Witness-Indistinguishability proof of knowledge

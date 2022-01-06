@@ -12,6 +12,7 @@ use ecdsa::{
     hazmat::FromDigest,
 };
 use serde::{Deserialize, Serialize};
+use sha2::digest::Update;
 use sha2::{Digest, Sha256};
 use tracing::{error, warn};
 

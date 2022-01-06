@@ -1,3 +1,4 @@
+use hmac::digest::Update;
 use rand::RngCore;
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};

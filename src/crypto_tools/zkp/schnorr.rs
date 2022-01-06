@@ -6,8 +6,8 @@ use crate::{
     },
     gg20::keygen::KeygenShareId,
 };
-use ecdsa::hazmat::FromDigest;
 use serde::{Deserialize, Serialize};
+use sha2::digest::Update;
 use sha2::{Digest, Sha256};
 use tracing::warn;
 
@@ -73,6 +73,8 @@ pub fn verify(stmt: &Statement, proof: &Proof) -> bool {
 // #[cfg(any(test, feature = "malicious"))] // malicious module used in tests
 #[cfg(test)]
 pub(crate) mod malicious {
+    use ecdsa::elliptic_curve::Field;
+
     use super::*;
 
     pub fn corrupt_proof(proof: &Proof) -> Proof {

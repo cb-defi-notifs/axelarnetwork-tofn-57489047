@@ -4,6 +4,7 @@ use crate::{
     crypto_tools::{rng, vss},
     sdk::api::{BytesVec, Protocol},
 };
+use ecdsa::elliptic_curve::Field;
 use tracing_test::traced_test;
 
 #[cfg(feature = "malicious")]

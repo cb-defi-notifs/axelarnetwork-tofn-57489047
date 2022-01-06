@@ -248,6 +248,7 @@ mod malicious {
             SignShareId,
         },
     };
+    use ecdsa::elliptic_curve::Field;
 
     impl R7Happy {
         pub fn corrupt_s_i(
