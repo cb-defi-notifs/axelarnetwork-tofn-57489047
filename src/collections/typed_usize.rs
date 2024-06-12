@@ -34,7 +34,7 @@ impl<K> Copy for TypedUsize<K> {}
 
 impl<K> Clone for TypedUsize<K> {
     fn clone(&self) -> Self {
-        Self::from_usize(self.0)
+        *self
     }
 }
 
@@ -77,7 +77,7 @@ impl<'de, K> Deserialize<'de> for TypedUsize<K> {
 #[cfg(test)]
 mod tests {
     use super::TypedUsize;
-    use crate::sdk::implementer_api::{deserialize, serialize};
+    use crate::sdk::wire_bytes::{deserialize, serialize};
 
     struct TestMarker;
 
